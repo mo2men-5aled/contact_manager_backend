@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Contact } from '../models/contact.model';
 
-// @desc Get all contacts with pagination + optional filters
+
 export const getContacts = async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
@@ -22,6 +22,7 @@ export const getContacts = async (req: Request, res: Response) => {
 
     res.json({
       page,
+      limit,
       totalPages: Math.ceil(total / limit),
       totalContacts: total,
       contacts,
@@ -31,7 +32,6 @@ export const getContacts = async (req: Request, res: Response) => {
   }
 };
 
-// @desc Add new contact
 export const createContact = async (req: Request, res: Response) => {
   try {
     const { name, phone, address, notes } = req.body;
@@ -50,7 +50,6 @@ export const createContact = async (req: Request, res: Response) => {
   }
 };
 
-// @desc Update contact
 export const updateContact = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -73,7 +72,6 @@ export const updateContact = async (req: Request, res: Response) => {
   }
 };
 
-// @desc Delete contact
 export const deleteContact = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
