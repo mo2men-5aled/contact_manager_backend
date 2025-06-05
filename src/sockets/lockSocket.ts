@@ -1,7 +1,7 @@
 import { Server } from 'socket.io';
 
 interface LockMap {
-  [contactId: string]: string; // contactId -> username
+  [contactId: string]: string;
 }
 
 const lockMap: LockMap = {};

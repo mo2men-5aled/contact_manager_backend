@@ -6,7 +6,8 @@ export const authorize =
     const user = req.user;
 
     if (!user || !allowedRoles.includes(user.role)) {
-      return res.status(403).json({ message: 'Access denied: insufficient rights' });
+      res.status(403).json({ message: 'Access denied: insufficient rights' });
+      return;
     }
 
     next();

@@ -6,15 +6,16 @@ import {
   deleteContact,
 } from '../controllers/contact.controller';
 import { verifyToken } from '../middlewares/auth.middleware';
+import { authorize } from '../middlewares/role.middleware';
 
 const router = Router();
 
 // All routes below are protected
 router.use(verifyToken);
 
-router.get('/', getContacts);
-router.post('/', createContact);
-router.put('/:id', updateContact);
-router.delete('/:id', deleteContact);
+router.get('/', authorize(['admin', 'viewer']), getContacts);
+router.post('/', authorize(['admin']),createContact);
+router.put('/:id', authorize(['admin']), updateContact);
+router.delete('/:id', authorize(['admin']), deleteContact);
 
 export default router;
