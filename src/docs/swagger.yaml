@@ -3,7 +3,7 @@ info:
   title: contact_manager
   version: 1.0.0
 servers:
-  - url: http://localhost:3050
+  - url: https://contact-manager-backend-5q64.onrender.com
 
 # Apply JWT auth globally (except for /login)
 security:
