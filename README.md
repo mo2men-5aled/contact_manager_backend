@@ -67,7 +67,7 @@ npm start
 You can access the interactive API docs at:
 
 ```
-http://localhost:3050/api-docs
+http://localhost:3050/api/docs
 ```
 
 ## Authentication
