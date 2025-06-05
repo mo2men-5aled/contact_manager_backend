@@ -5,7 +5,7 @@ import { Contact } from '../models/contact.model';
 export const getContacts = async (req: Request, res: Response) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
-    const limit = 5;
+    const limit = parseInt(req.query.limit as string) || 5;
     const skip = (page - 1) * limit;
 
     // Build filters object based on query params
