@@ -13,9 +13,6 @@ import { createContactSchema, updateContactSchema } from '../validators/contact.
 
 const router = Router();
 
-// All routes below are protected
-router.use(verifyToken);
-
 router.get('/', authorize(['admin', 'viewer']), getContacts);
 router.post('/', authorize(['admin']), validateBody(createContactSchema), createContact);
 router.put('/:id', authorize(['admin']), validateBody(updateContactSchema), updateContact);
